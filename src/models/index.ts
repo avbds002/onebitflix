@@ -1,3 +1,8 @@
 import { Category } from "./Category";
+import { Course } from "./Course";
 
-export { Category };
+//relação um para muitos entre categoria e cursos
+Category.hasMany(Course);
+Course.belongsTo(Category);
+
+export { Category, Course };
