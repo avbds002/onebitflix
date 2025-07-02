@@ -6,7 +6,7 @@ export const sequelize = new Sequelize({
   port: 5432,
   database: "onebitflix_development",
   username: "postgres",
-  password: "admin",
+  password: "Asd2kb16a2*",
   define: {
     underscored: true,
   },
