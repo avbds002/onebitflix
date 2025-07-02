@@ -1,12 +1,19 @@
 import express from "express";
-import { sequelize } from "./database/index";
+import { database } from "./database/index";
+import { adminJs, adminJsRouter } from "./adminjs";
 
 const app = express();
+
+//app.use(caminho, rotas)
+app.use(adminJs.options.rootPath, adminJsRouter);
+
+//configuração para usar arquivos estáticos
+app.use(express.static("public"));
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  sequelize.authenticate().then(() => {
+  database.authenticate().then(() => {
     console.log("DB CONNECTION SUCCESSFULL");
   });
   console.log(`Server started successfully at localhost:${PORT}`);
